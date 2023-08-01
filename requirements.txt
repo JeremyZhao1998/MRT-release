@@ -1,0 +1,7 @@
+Pillow
+pycocotools
+tqdm
+cython
+scipy
+setuptools
+tensorboard
