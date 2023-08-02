@@ -11,14 +11,8 @@ class CocoStyleDataset(CocoDetection):
         'cityscapes': {
             'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
         },
-        'cityscapes_7classes': {
-            'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
-        },
         'foggy_cityscapes': {
             'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
-        },
-        'bdd100k': {
-            'train': 'bdd100k/images/100k/train', 'val': 'bdd100k/images/100k/val',
         },
         'sim10k': {
             'train': 'sim10k/JPEGImages'
@@ -35,23 +29,11 @@ class CocoStyleDataset(CocoDetection):
                 'val': 'cityscapes/annotations/cityscapes_val_caronly_cocostyle.json'
             }
         },
-        'cityscapes_7classes': {
-            'source': {
-                'train': 'cityscapes/annotations/cityscapes_train_7classes_cocostyle.json',
-                'val': 'cityscapes/annotations/cityscapes_val_7classes_cocostyle.json',
-            }
-        },
         'foggy_cityscapes': {
             'target': {
                 'train': 'foggy_cityscapes/annotations/foggy_cityscapes_train_cocostyle.json',
                 'val': 'foggy_cityscapes/annotations/foggy_cityscapes_val_cocostyle.json'
             }
-        },
-        'bdd100k': {
-            'target': {
-                'train': 'bdd100k/annotations/bdd100k_daytime_train_cocostyle.json',
-                'val': 'bdd100k/annotations/bdd100k_daytime_val_cocostyle.json'
-            },
         },
         'sim10k': {
             'source': {

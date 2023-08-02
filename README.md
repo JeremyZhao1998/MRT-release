@@ -44,13 +44,12 @@ python test.py
 
 ### 2.1 Data preparation
 
-We provide the three benchmarks in our paper: 
+We provide the 2 benchmarks in our paper: 
 
 - city2foggy: cityscapes dataset is used as source domain, and foggy_cityscapes(0.02) is used as target domain.
-- city2bdd: cityscapes dataset is used as source domain, and bdd100k_daytime is used as target domain.
 - sim2city: sim10k dataset is used as source domain, and cityscapes which only record AP of cars is used as target domain.
 
-You can download the raw data from the official websites: [cityscapes](https://www.cityscapes-dataset.com/downloads/),  [foggy_cityscapes](https://www.cityscapes-dataset.com/downloads/),  [sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix),  [bdd100k](https://bdd-data.berkeley.edu/). We provide the annotations that are converted into coco style, download from [here](https://drive.google.com/file/d/1o8o9bYXgu0UY5Et7jdIIz-hNqxvBJkXU/view?usp=drive_link) and organize the datasets and annotations as following:
+You can download the raw data from the official websites: [cityscapes](https://www.cityscapes-dataset.com/downloads/),  [foggy_cityscapes](https://www.cityscapes-dataset.com/downloads/),  [sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix). We provide the annotations that are converted into coco style, download from [here](https://drive.google.com/file/d/1CWbhmZlQYp3bntjRvpShpEu-zC_ygtcn/view?usp=sharing) and organize the datasets and annotations as following:
 
 ```bash
 [data_root]
@@ -60,8 +59,6 @@ You can download the raw data from the official websites: [cityscapes](https://w
 		└─ cityscapes_train_caronly_cocostyle.json
 		└─ cityscapes_val_cocostyle.json
 		└─ cityscapes_val_caronly_cocostyle.json
-		└─ cityscapes_train_7classes_cocostyle.json
-		└─ cityscapes_val_7classes_cocostyle.json
 	└─ leftImg8bit
 		└─ train
 		└─ val
@@ -76,11 +73,6 @@ You can download the raw data from the official websites: [cityscapes](https://w
 	└─ annotations
 		└─ sim10k_train_cocostyle.json
 		└─ sim10k_val_cocostyle.json
-	└─ JPEGImages
-└─ bdd10k
-	└─ annotations
-		└─ bdd100k_daytime_train_cocostyle.json
-		└─ bdd100k_daytime_val_cocostyle.json
 	└─ JPEGImages
 ```
 
@@ -124,21 +116,13 @@ We conduct all experiments with batch size 8 (for source_only stage, 8 labeled s
 | resnet50 | 6              | 6              | cross_domain_mae | 35.8  | [logs](https://drive.google.com/file/d/1gUYJDX9eE5FIKWMbR_tK6leMnM5q06dj/view?usp=sharing) & [weights](https://drive.google.com/file/d/1X-STx26799Q2vAUle1QjXj_1gzwvZrRk/view?usp=drive_link) |
 | resnet50 | 6              | 6              | MRT teaching     | 51.2  | [logs](https://drive.google.com/file/d/1YwLUo3t2KJ1pjENFAr5vECZlrRFWwKG2/view?usp=sharing) & [weights](https://drive.google.com/file/d/1BooqcIdzP97I3ax7JN6ULZWoZcvRKLlm/view?usp=sharing) |
 
-**city2bdd**: cityscapes → bdd100k(daytime)
-
-| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights                                               |
-| -------- | -------------- | -------------- | ---------------- | ----- | ------------------------------------------------------------ |
-| resnet50 | 6              | 6              | source_only      | 29.0  | [logs](https://drive.google.com/file/d/1VEU5d4rDzuqgZHurSnApgtTGY8dfDOff/view?usp=sharing) & [weights](https://drive.google.com/file/d/1RfWnuIJhR3v6X69nW0xbKMA1X6z12JtJ/view?usp=sharing) |
-| resnet50 | 6              | 6              | cross_domain_mae | 31.5  | [logs](https://drive.google.com/file/d/12O-COg8ktKIqXDEiDePAy4zcpkCtM5_2/view?usp=sharing) & [weights](https://drive.google.com/file/d/1QUE7fciTUSnKnjV7TcB5Uqw569hpc3Ie/view?usp=sharing) |
-| resnet50 | 6              | 6              | MRT teaching     | 33.7  | [logs](https://drive.google.com/file/d/1kyVyujIPSKodK1U4nW2r82aiih0O5e-l/view?usp=sharing) & [weights](https://drive.google.com/file/d/1u-X0sCeLtvfMN4dTq_SNPsoxJZ1Kd3dV/view?usp=sharing) |
-
 **sim2city**: sim10k → cityscapes(car only)
 
-| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights                                               |
-| -------- | -------------- | -------------- | ---------------- | ----- | ------------------------------------------------------------ |
-| resnet50 | 6              | 6              | source_only      | 52.2  | [logs](https://drive.google.com/file/d/1qlVbMOipNXIEuz57sxtKeKqPAPUlJSlT/view?usp=sharing) & [weights](https://drive.google.com/file/d/1a-G7glujyoNE9rhdu9fG5PYwSGZpQ0kE/view?usp=sharing) |
-| resnet50 | 6              | 6              | cross_domain_mae | 56.8  | [logs](https://drive.google.com/file/d/16RxhyX0lbFyJFubegtaqEbZEF91x7aEX/view?usp=sharing) & [weights](https://drive.google.com/file/d/1b2v9eizaBmT7l_NXSLNc1NKDAzQ0HEHx/view?usp=sharing) |
-| resnet50 | 6              | 6              | MRT teaching     | 63.6  | [logs](https://drive.google.com/file/d/1auRK1YeIE0Fp-VFMV2DQRyrwuZThwRke/view?usp=sharing) & [weights](https://drive.google.com/file/d/19JFOVURXFIgQ0uHqcqBvYTTcIrN8FuEP/view?usp=sharing) |
+| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights |
+| -------- | -------------- | -------------- | ---------------- | ----- | -------------- |
+| resnet50 | 6              | 6              | source_only      | 52.2  | coming soon    |
+| resnet50 | 6              | 6              | cross_domain_mae | 56.8  | coming soon    |
+| resnet50 | 6              | 6              | MRT teaching     | 60.1  | coming soon    |
 
 
 
