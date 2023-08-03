@@ -118,11 +118,11 @@ We conduct all experiments with batch size 8 (for source_only stage, 8 labeled s
 
 **sim2city**: sim10k → cityscapes(car only)
 
-| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights |
-| -------- | -------------- | -------------- | ---------------- | ----- | -------------- |
-| resnet50 | 6              | 6              | source_only      | 52.2  | coming soon    |
-| resnet50 | 6              | 6              | cross_domain_mae | 56.8  | coming soon    |
-| resnet50 | 6              | 6              | MRT teaching     | 60.1  | coming soon    |
+| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights                                               |
+| -------- | -------------- | -------------- | ---------------- | ----- | ------------------------------------------------------------ |
+| resnet50 | 6              | 6              | source_only      | 53.2  | [logs](https://drive.google.com/file/d/1qfdHLuUX8N3SRUTNmclf0Y3PJ-deOF4r/view?usp=sharing) & [weights](https://drive.google.com/file/d/1mkqKxrWannqJN1_tJdh76t7ZAGIzDsIs/view?usp=sharing) |
+| resnet50 | 6              | 6              | cross_domain_mae | 57.1  | [logs](https://drive.google.com/file/d/1bDNux81HhHZhmuoABwU-N4ALZFjKQWHR/view?usp=drive_link) & [weights](https://drive.google.com/file/d/14cTFm8pM9DmN2UcV7NGaMJxOJVfOvANP/view?usp=sharing) |
+| resnet50 | 6              | 6              | MRT teaching     | 62.0  | [logs](https://drive.google.com/file/d/1S_GiAb9Ujfndh6XHnBz6qmCawpEDY102/view?usp=sharing) & [weights](https://drive.google.com/file/d/1dsSuk24_jEq3k4DBpoPr4AH3mxL0DspP/view?usp=sharing) |
 
 
 
