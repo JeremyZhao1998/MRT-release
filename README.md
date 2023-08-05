@@ -48,8 +48,9 @@ We provide the 2 benchmarks in our paper:
 
 - city2foggy: cityscapes dataset is used as source domain, and foggy_cityscapes(0.02) is used as target domain.
 - sim2city: sim10k dataset is used as source domain, and cityscapes which only record AP of cars is used as target domain.
+- city2bdd: cityscapes dataset is used as source domain, and bdd100k-daytime is used as target domain.
 
-You can download the raw data from the official websites: [cityscapes](https://www.cityscapes-dataset.com/downloads/),  [foggy_cityscapes](https://www.cityscapes-dataset.com/downloads/),  [sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix). We provide the annotations that are converted into coco style, download from [here](https://drive.google.com/file/d/1CWbhmZlQYp3bntjRvpShpEu-zC_ygtcn/view?usp=sharing) and organize the datasets and annotations as following:
+You can download the raw data from the official websites: [cityscapes](https://www.cityscapes-dataset.com/downloads/),  [foggy_cityscapes](https://www.cityscapes-dataset.com/downloads/),  [sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix), [bdd100k](https://bdd-data.berkeley.edu/). We provide the annotations that are converted into coco style, download from [here](https://drive.google.com/file/d/1LB0wK9kO3eW8jpR2ZtponmYWe9x2KSiU/view?usp=sharing) and organize the datasets and annotations as following:
 
 ```bash
 [data_root]
@@ -73,6 +74,11 @@ You can download the raw data from the official websites: [cityscapes](https://w
 	└─ annotations
 		└─ sim10k_train_cocostyle.json
 		└─ sim10k_val_cocostyle.json
+	└─ JPEGImages
+└─ bdd10k
+	└─ annotations
+		└─ bdd100k_daytime_train_cocostyle.json
+		└─ bdd100k_daytime_val_cocostyle.json
 	└─ JPEGImages
 ```
 
@@ -123,6 +129,14 @@ We conduct all experiments with batch size 8 (for source_only stage, 8 labeled s
 | resnet50 | 6              | 6              | source_only      | 53.2  | [logs](https://drive.google.com/file/d/1qfdHLuUX8N3SRUTNmclf0Y3PJ-deOF4r/view?usp=sharing) & [weights](https://drive.google.com/file/d/1mkqKxrWannqJN1_tJdh76t7ZAGIzDsIs/view?usp=sharing) |
 | resnet50 | 6              | 6              | cross_domain_mae | 57.1  | [logs](https://drive.google.com/file/d/1bDNux81HhHZhmuoABwU-N4ALZFjKQWHR/view?usp=drive_link) & [weights](https://drive.google.com/file/d/14cTFm8pM9DmN2UcV7NGaMJxOJVfOvANP/view?usp=sharing) |
 | resnet50 | 6              | 6              | MRT teaching     | 62.0  | [logs](https://drive.google.com/file/d/1S_GiAb9Ujfndh6XHnBz6qmCawpEDY102/view?usp=sharing) & [weights](https://drive.google.com/file/d/1dsSuk24_jEq3k4DBpoPr4AH3mxL0DspP/view?usp=sharing) |
+
+**city2bdd**: cityscapes → bdd100k(daytime)
+
+| backbone | encoder layers | decoder layers | training stage   | AP@50 | logs & weights                                               |
+| -------- | -------------- | -------------- | ---------------- | ----- | ------------------------------------------------------------ |
+| resnet50 | 6              | 6              | source_only      | 29.6  | [logs](https://drive.google.com/file/d/1KIydqXkj0LIlDlHHDW4TfxIh3-rmaWQM/view?usp=drive_link) & [weights](https://drive.google.com/file/d/1IAzbKozA_Rq-2H-KzdcvGp3LGJrZ4J5G/view?usp=drive_link) |
+| resnet50 | 6              | 6              | cross_domain_mae | 31.1  | [logs](https://drive.google.com/file/d/1gUYJDX9eE5FIKWMbR_tK6leMnM5q06dj/view?usp=drive_link) & [weights](https://drive.google.com/file/d/1X-STx26799Q2vAUle1QjXj_1gzwvZrRk/view?usp=drive_link) |
+| resnet50 | 6              | 6              | MRT teaching     | 33.7  | [logs](https://drive.google.com/file/d/13jgRrsKVDap0O9rUiY-ZhZp-kL6di4EH/view?usp=sharing) & [weights](https://drive.google.com/file/d/1VRtNy_2bXdkpLr1h6v-ZusEuTR7hAu_v/view?usp=sharing) |
 
 
 
