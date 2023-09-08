@@ -1,17 +1,50 @@
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<div id="markdown-content"></div>
-<script>
-  // 替换这里的文件路径为您的Markdown文件的路径
-  const markdownFilePath = 'script.md';
-
-  // 获取Markdown文件内容
-  fetch(markdownFilePath)
-    .then((response) => response.text())
-    .then((markdownText) => {
-      // 使用 marked.js 将Markdown转换为HTML并插入到容器中
-      document.getElementById('markdown-content').innerHTML = marked(markdownText);
-    })
-    .catch((error) => {
-      console.error('Error loading Markdown file:', error);
-    });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Paper Title</title>
+    <style>
+        body {
+            text-align: center; /* 将页面文本水平居中对齐 */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        main {
+            max-width: 800px; /* 控制内容的最大宽度 */
+            margin: 0 auto; /* 居中对齐内容 */
+            text-align: left; /* 恢复内容的左对齐 */
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Masked Retraining Teacher-Student Framework for Domain Adaptive Object Detection</h1>
+        <p>Zijing Zhao, Sitong Wei, Qingchao Chen, Dehui Li, Yifan Yang, Yuxin Peng, Yang Liu†</p>
+        
+    </header>
+    <main>
+        <section>
+            <h2>Abstract</h2>
+            <p>Your abstract text goes here.</p>
+        </section>
+        <section>
+            <h2>Introduction</h2>
+            <p>Your introduction content goes here.</p>
+        </section>
+        <!-- Add more sections as needed -->
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
+</body>
+</html>
