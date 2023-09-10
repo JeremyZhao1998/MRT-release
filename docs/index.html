@@ -24,27 +24,77 @@
             color: #fff;
             padding: 10px;
         }
+        header a {
+            color: yellow;
+        }
+        main a {
+            color: blue;
+        }
+        footer a {
+            color: yellow;
+        }
+        img {
+            max-width: 100%; /* 图片最大宽度为父元素宽度的100% */
+            height: auto; /* 让高度自动调整以保持原始宽高比 */
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Masked Retraining Teacher-Student Framework for Domain Adaptive Object Detection</h1>
-        <p>Zijing Zhao, Sitong Wei, Qingchao Chen, Dehui Li, Yifan Yang, Yuxin Peng, Yang Liu†</p>
-        
+        <p><strong>Accepted by ICCV 2023</strong></p>
+        <p><strong>[pdf] [supp] [arxiv] [<a href="https://github.com/JeremyZhao1998/MRT-release">code</a>]</strong></p>
+        <p>Zijing Zhao<sup>1</sup>, Sitong Wei<sup>1</sup>, Qingchao Chen<sup>2</sup>, Dehui Li<sup>3</sup>,
+            Yifan Yang<sup>3</sup>, Yuxin Peng<sup>1</sup>, Yang Liu<sup>1,†</sup></p>
+        <p style="line-height: 0.2;">Wangxuan Institute of Computer Technology, Peking University<sup>1</sup></p>
+        <p style="line-height: 0.2;">National Institute of Health Data Science, Peking University<sup>2</sup><p>
+        <p style="line-height: 0.2;">Tencent Intelligent Mobility<sup>3</sup><p>
     </header>
     <main>
         <section>
             <h2>Abstract</h2>
-            <p>Your abstract text goes here.</p>
+            <p>Domain adaptive Object Detection (DAOD) leverages a labeled domain (source) to learn an object detector
+                generalizing to a novel domain without annotation (target). Recent advances use a teacher-student
+                framework, i.e., a student model is supervised by the pseudo labels from a teacher model. Though great
+                success, they suffer from the limited number of pseudo boxes with incorrect predictions caused by the
+                domain shift, misleading the student model to get sub-optimal results. To mitigate this problem, we
+                propose Masked Retraining Teacher-student framework (MRT) which leverages masked autoencoder and
+                selective retraining mechanism on detection transformer. Specifically, we present a customized design
+                of masked autoencoder branch, masking the multi-scale feature maps of target images and reconstructing
+                features by the encoder of the student model and an auxiliary decoder. This helps the student model
+                capture target domain characteristics and become a more data-efficient learner to gain knowledge from
+                the limited number of pseudo boxes. Furthermore, we adopt selective retraining mechanism, periodically
+                re-initializing certain parts of the student parameters with masked autoencoder refined weights to allow
+                the model to jump out of the local optimum biased to the incorrect pseudo labels. Experimental results
+                on three DAOD benchmarks demonstrate the effectiveness of our method. Code can be found at
+                <a href="https://github.com/JeremyZhao1998/MRT-release">MRT Codebase</a>.</p>
         </section>
         <section>
-            <h2>Introduction</h2>
-            <p>Your introduction content goes here.</p>
+            <h2>Method Overview</h2>
+            <img src="../figures/method.png" alt="MRT method overview">
+            <p>Overview Masked Retraining Teacher-student framework(MRT). The adaptive teacher-student baseline consists
+                of a teacher model which takes weakly-augmented target images and produces pseudo labels, and a student
+                model which takes strongly augmented source and target images, supervised by ground truth labels and
+                pseudo labels respectively. Adversarial alignment are applied on backbone, encoder and decoder. Our
+                proposed MAE branch masks feature maps of target images, and and reconstructs the feature by student
+                encoder and an auxiliary decoder. Our proposed selective retraining mechanism periodically re-initialize
+                certain parts of the student parameters as highlighted. The teacher model is updated only by EMA from
+                the student model. Empirically, we use the teacher model at inference time.</p>
+        </section>
+        <section>
+            <h2>Introduction Video</h2>
+            <p>Video link coming soon.</p>
+        </section>
+        <section>
+            <h2>Citation</h2>
+            <p>If you use MRT in your research or wish to refer to the results published in the paper, please use the
+                following BibTeX entry.</p>
+            <p>Bibtex coming soon.</p>
         </section>
         <!-- Add more sections as needed -->
     </main>
     <footer>
-        <p>&copy; 2023 Your Name</p>
+        <p>&copy; 2023 Page created by <a href="https://jeremyzhao1998.github.io/">Zijing Zhao</a></p>
     </footer>
 </body>
 </html>
