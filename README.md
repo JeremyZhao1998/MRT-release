@@ -5,7 +5,7 @@ By Zijing Zhao, Sitong Wei, Qingchao Chen, Dehui Li, Yifan Yang, Yuxin Peng and 
 
 The paper has been accepted by **IEEE/CVF International Conference on Computer Vision (ICCV), 2023**
 
-![method](figures/method.png)
+![method](docs/method.png)
 
 Domain adaptive Object Detection (DAOD) leverages a labeled domain (source) to learn an object detector generalizing to a novel domain without annotation (target). Recent advances use a teacher-student framework, i.e., a student model is supervised by the pseudo labels from a teacher model. Though great success, they suffer from the limited number of pseudo boxes with incorrect predictions caused by the domain shift, misleading the student model to get sub-optimal results. To mitigate this problem, we propose Masked Retraining Teacher-student framework (MRT) which leverages masked autoencoder and selective retraining mechanism on detection transformer. Experiments show that our method outperforms existing approaches and achieves state-of-the-art on three domain adaptive object detection benchmarks.
 
