@@ -37,18 +37,24 @@
             max-width: 100%; /* 图片最大宽度为父元素宽度的100% */
             height: auto; /* 让高度自动调整以保持原始宽高比 */
         }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Masked Retraining Teacher-Student Framework for Domain Adaptive Object Detection</h1>
         <p><strong>Accepted by ICCV 2023</strong></p>
-        <p><strong>[pdf] [supp] [arxiv] [<a href="https://github.com/JeremyZhao1998/MRT-release">code</a>]</strong></p>
-        <p><a href="https://jeremyzhao1998.github.io/">Zijing Zhao</a><sup>1</sup>, Sitong Wei<sup>1</sup>, Qingchao Chen<sup>2</sup>, Dehui Li<sup>3</sup>,
-            Yifan Yang<sup>3</sup>, <a href="http://www.wict.pku.edu.cn/mipl/pengyuxin">Yuxin Peng</a><sup>1</sup>, <a href="http://www.csyangliu.com/">Yang Liu</a><sup>1,†</sup></p>
-        <p style="line-height: 0.2;">Wangxuan Institute of Computer Technology, Peking University<sup>1</sup></p>
-        <p style="line-height: 0.2;">National Institute of Health Data Science, Peking University<sup>2</sup><p>
-        <p style="line-height: 0.2;">Tencent Intelligent Mobility<sup>3</sup><p>
+        <p><strong>[<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Zhao_Masked_Retraining_Teacher-Student_Framework_for_Domain_Adaptive_Object_Detection_ICCV_2023_paper.pdf">pdf</a>]
+            [<a href="https://openaccess.thecvf.com/content/ICCV2023/supplemental/Zhao_Masked_Retraining_Teacher-Student_ICCV_2023_supplemental.pdf">supp</a>]
+            [<a href="https://github.com/JeremyZhao1998/MRT-release">code</a>]</strong></p>
+        <p><a href="https://jeremyzhao1998.github.io/">Zijing Zhao</a><sup>1</sup>, Sitong Wei<sup>1</sup>, Qingchao Chen<sup>1</sup>, Dehui Li<sup>2</sup>,
+            Yifan Yang<sup>2</sup>, <a href="http://www.wict.pku.edu.cn/mipl/pengyuxin">Yuxin Peng</a><sup>1</sup>, <a href="http://www.csyangliu.com/">Yang Liu</a><sup>1,†</sup></p>
+        <p style="line-height: 0.2;">Peking University<sup>1</sup></p>
+        <p style="line-height: 0.2;">Tencent Intelligent Mobility<sup>2</sup><p>
     </header>
     <main>
         <section>
@@ -70,6 +76,15 @@
                 <a href="https://github.com/JeremyZhao1998/MRT-release">MRT Codebase</a>.</p>
         </section>
         <section>
+            <h2>Problem Definition</h2>
+            <img src="https://github.com/JeremyZhao1998/MRT-release/blob/main/docs/task1.png?raw=true" alt="Task discription 1">
+            <img src="https://github.com/JeremyZhao1998/MRT-release/blob/main/docs/task2.png?raw=true" alt="Task discription 2">
+            <p>In real-world applications, there exists a distribution gap between training data (source domain) and the
+                deployed environment (target domain). For example, the model trained on sunny weather may face a
+                significant performance drop when applied to foggy weather scenes. Unsupervised Domain Adaptive Object
+                Detection aims to generalize the model to target domain without additional annotations.</p>
+        </section>
+        <section>
             <h2>Method Overview</h2>
             <img src="https://github.com/JeremyZhao1998/MRT-release/blob/main/docs/method.png?raw=true" alt="MRT method overview">
             <p>Overview Masked Retraining Teacher-student framework(MRT). The adaptive teacher-student baseline consists
@@ -82,16 +97,38 @@
                 the student model. Empirically, we use the teacher model at inference time.</p>
         </section>
         <section>
+            <h2>Experimental Results</h2>
+            <div class="center">
+                <img src="https://github.com/JeremyZhao1998/MRT-release/blob/main/docs/results1.png?raw=true" alt="Main results" width="60%" height="auto">
+            </div>
+            <p>Our method achieves state-of-the-art performance on three benchmarks:
+                cityscapes to foggy cityscapes(0.02) (city2foggy),
+                sim10k to cityscapes(car) (sim2city), and
+                cityscapes to bdd100k(daytime) (city2bdd).
+            </p>
+            <img src="https://github.com/JeremyZhao1998/MRT-release/blob/main/docs/results2.png?raw=true" alt="Visualization">
+            <p>Visulization of detection results demostrate the effectiveness of each module of our method.</p>
+        </section>
+        <section>
             <h2>Introduction Video</h2>
-            <p>Video link coming soon.</p>
+            <div class="center">
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/GGhBn6akViU?si=9npiYvYJNRcQXT2C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
         </section>
         <section>
             <h2>Citation</h2>
             <p>If you use MRT in your research or wish to refer to the results published in the paper, please use the
                 following BibTeX entry.</p>
-            <p>Bibtex coming soon.</p>
+            <pre>
+@inproceedings{zhao2023masked,
+    title={Masked Retraining Teacher-Student Framework for Domain Adaptive Object Detection},
+    author={Zhao, Zijing and Wei, Sitong and Chen, Qingchao and Li, Dehui and Yang, Yifan and Peng, Yuxin and Liu, Yang},
+    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    pages={19039--19049},
+    year={2023}
+}
+            </pre>
         </section>
-        <!-- Add more sections as needed -->
     </main>
     <footer>
         <p>&copy; 2023 Page created by <a href="https://jeremyzhao1998.github.io/">Zijing Zhao</a></p>
