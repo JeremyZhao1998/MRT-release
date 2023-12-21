@@ -144,4 +144,16 @@ We conduct all experiments with batch size 8 (for source_only stage, 8 labeled s
 
 This repository is constructed and maintained by [Zijing Zhao](https://jeremyzhao1998.github.io/) and [Sitong Wei](https://github.com/wst2001).
 
-The paper link and BibTeX entry will be coming soon.
+If you find our paper or project useful, please cite our work by the following BibTeX:
+
+```
+@inproceedings{zhao2023masked,
+  title={Masked retraining teacher-student framework for domain adaptive object detection},
+  author={Zhao, Zijing and Wei, Sitong and Chen, Qingchao and Li, Dehui and Yang, Yifan and Peng, Yuxin and Liu, Yang},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={19039--19049},
+  year={2023}
+}
+```
+
+Thanks for your attention.
